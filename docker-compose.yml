@@ -32,7 +32,6 @@ services:
     environment:
       SOCKETCLUSTER_WORKERS: 10
       SOCKETCLUSTER_BROKERS: 10
-      # SOCKETCLUSTER_OPTIONS can be set via docker-compose.override.yml
 
   scheduler:
     image: fleetbase/fleetbase-api:latest
@@ -80,17 +79,15 @@ services:
 
   application:
     image: fleetbase/fleetbase-api:latest
-    volumes:
-      - ./api/.env:/fleetbase/api/.env
     environment:
-      ENVIRONMENT: development
+      ENVIRONMENT: production
       DATABASE_URL: "mysql://root@database/fleetbase"
       QUEUE_CONNECTION: redis
       CACHE_DRIVER: redis
       CACHE_PATH: /fleetbase/api/storage/framework/cache
       CACHE_URL: tcp://cache
       REDIS_URL: tcp://cache
-      SESSION_DOMAIN: localhost
+      SESSION_DOMAIN: .prd.weedooit.net
       BROADCAST_DRIVER: socketcluster
       MAIL_FROM_NAME: Fleetbase
       APP_NAME: Fleetbase
