@@ -12,6 +12,8 @@ services:
       REDIS_URL: ${REDIS_URL}
       OSRM_HOST: ${OSRM_HOST}
       MAIL_MAILER: ${MAIL_MAILER}
+      SESSION_DOMAIN: ${SESSION_DOMAIN}
+      BROADCAST_DRIVER: ${BROADCAST_DRIVER}
 
   queue:
     environment:
@@ -26,6 +28,3 @@ services:
   socket:
     environment:
       SOCKETCLUSTER_OPTIONS: ${SOCKETCLUSTER_OPTIONS}
-
-  httpd:
-    ports: []
