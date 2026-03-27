@@ -38,12 +38,26 @@ services:
     command: ["go-crond", "--verbose", "root:./crontab"]
     restart: unless-stopped
     environment:
+      APP_KEY: "base64:Q3hFNm5mWm0vR2F3M2dHT0VxL3NQbFlJc2RJeHhLejVQbW1Bd1k9"
+      APP_ENV: "production"
+      APP_DEBUG: "false"
+      APP_URL: "https://api-interfret.prd.weedooit.net"
+      CONSOLE_HOST: "https://app-interfret.prd.weedooit.net"
       DATABASE_URL: "mysql://root@database/fleetbase"
-      QUEUE_CONNECTION: redis
-      CACHE_DRIVER: redis
-      CACHE_PATH: /fleetbase/api/storage/framework/cache
-      CACHE_URL: tcp://cache
-      REDIS_URL: tcp://cache
+      QUEUE_CONNECTION: "redis"
+      CACHE_DRIVER: "redis"
+      CACHE_PATH: "/fleetbase/api/storage/framework/cache"
+      CACHE_URL: "tcp://cache"
+      REDIS_URL: "tcp://cache"
+      SESSION_DOMAIN: ".prd.weedooit.net"
+      BROADCAST_DRIVER: "socketcluster"
+      MAIL_MAILER: "smtp"
+      MAIL_FROM_NAME: "Fleetbase"
+      APP_NAME: "Fleetbase"
+      LOG_CHANNEL: "daily"
+      REGISTRY_HOST: "https://registry.fleetbase.io"
+      REGISTRY_PREINSTALLED_EXTENSIONS: "true"
+      OSRM_HOST: "https://router.project-osrm.org"
     depends_on:
       - database
       - cache
@@ -58,12 +72,26 @@ services:
       timeout: 10s
       retries: 3
     environment:
+      APP_KEY: "base64:Q3hFNm5mWm0vR2F3M2dHT0VxL3NQbFlJc2RJeHhLejVQbW1Bd1k9"
+      APP_ENV: "production"
+      APP_DEBUG: "false"
+      APP_URL: "https://api-interfret.prd.weedooit.net"
+      CONSOLE_HOST: "https://app-interfret.prd.weedooit.net"
       DATABASE_URL: "mysql://root@database/fleetbase"
-      QUEUE_CONNECTION: redis
-      CACHE_DRIVER: redis
-      CACHE_PATH: /fleetbase/api/storage/framework/cache
-      CACHE_URL: tcp://cache
-      REDIS_URL: tcp://cache
+      QUEUE_CONNECTION: "redis"
+      CACHE_DRIVER: "redis"
+      CACHE_PATH: "/fleetbase/api/storage/framework/cache"
+      CACHE_URL: "tcp://cache"
+      REDIS_URL: "tcp://cache"
+      SESSION_DOMAIN: ".prd.weedooit.net"
+      BROADCAST_DRIVER: "socketcluster"
+      MAIL_MAILER: "smtp"
+      MAIL_FROM_NAME: "Fleetbase"
+      APP_NAME: "Fleetbase"
+      LOG_CHANNEL: "daily"
+      REGISTRY_HOST: "https://registry.fleetbase.io"
+      REGISTRY_PREINSTALLED_EXTENSIONS: "true"
+      OSRM_HOST: "https://router.project-osrm.org"
     depends_on:
       - database
       - cache
@@ -79,22 +107,28 @@ services:
 
   application:
     image: fleetbase/fleetbase-api:latest
+    restart: unless-stopped
     environment:
-      ENVIRONMENT: production
+      APP_KEY: "base64:Q3hFNm5mWm0vR2F3M2dHT0VxL3NQbFlJc2RJeHhLejVQbW1Bd1k9"
+      APP_ENV: "production"
+      APP_DEBUG: "false"
+      APP_URL: "https://api-interfret.prd.weedooit.net"
+      CONSOLE_HOST: "https://app-interfret.prd.weedooit.net"
       DATABASE_URL: "mysql://root@database/fleetbase"
-      QUEUE_CONNECTION: redis
-      CACHE_DRIVER: redis
-      CACHE_PATH: /fleetbase/api/storage/framework/cache
-      CACHE_URL: tcp://cache
-      REDIS_URL: tcp://cache
-      SESSION_DOMAIN: .prd.weedooit.net
-      BROADCAST_DRIVER: socketcluster
-      MAIL_FROM_NAME: Fleetbase
-      APP_NAME: Fleetbase
-      LOG_CHANNEL: daily
-      REGISTRY_HOST: https://registry.fleetbase.io
+      QUEUE_CONNECTION: "redis"
+      CACHE_DRIVER: "redis"
+      CACHE_PATH: "/fleetbase/api/storage/framework/cache"
+      CACHE_URL: "tcp://cache"
+      REDIS_URL: "tcp://cache"
+      SESSION_DOMAIN: ".prd.weedooit.net"
+      BROADCAST_DRIVER: "socketcluster"
+      MAIL_MAILER: "smtp"
+      MAIL_FROM_NAME: "Fleetbase"
+      APP_NAME: "Fleetbase"
+      LOG_CHANNEL: "daily"
+      REGISTRY_HOST: "https://registry.fleetbase.io"
       REGISTRY_PREINSTALLED_EXTENSIONS: "true"
-      OSRM_HOST: https://router.project-osrm.org
+      OSRM_HOST: "https://router.project-osrm.org"
     depends_on:
       - database
       - cache
