@@ -1,3 +1,30 @@
 version: "3.8"
 
-services: {}
+services:
+  application:
+    environment:
+      APP_ENV: ${APP_ENV}
+      APP_DEBUG: ${APP_DEBUG}
+      APP_URL: ${APP_URL}
+      CONSOLE_HOST: ${CONSOLE_HOST}
+      APP_KEY: ${APP_KEY}
+      DATABASE_URL: ${DATABASE_URL}
+      REDIS_URL: ${REDIS_URL}
+      OSRM_HOST: ${OSRM_HOST}
+      MAIL_MAILER: ${MAIL_MAILER}
+      SESSION_DOMAIN: ${SESSION_DOMAIN}
+      BROADCAST_DRIVER: ${BROADCAST_DRIVER}
+
+  queue:
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+      REDIS_URL: ${REDIS_URL}
+
+  scheduler:
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+      REDIS_URL: ${REDIS_URL}
+
+  socket:
+    environment:
+      SOCKETCLUSTER_OPTIONS: ${SOCKETCLUSTER_OPTIONS}
