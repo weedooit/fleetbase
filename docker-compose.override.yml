@@ -26,3 +26,6 @@ services:
   socket:
     environment:
       SOCKETCLUSTER_OPTIONS: ${SOCKETCLUSTER_OPTIONS}
+
+  httpd:
+    ports: []
